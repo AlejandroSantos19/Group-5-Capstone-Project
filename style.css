@@ -1,0 +1,38 @@
+/*Imports fonts */
+@import url('https://fonts.googleapis.com/css2?family=Geo:ital@0;1&family=PT+Sans+Narrow:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geo:ital@0;1&family=PT+Sans+Narrow:wght@400;700&family=Pirata+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
+
+/*styles the webpage links */
+a {
+    color: #4c5f90; /* Changes the link color */
+    font-family: Verdana; /* Changes fonts of links */
+    text-decoration: none; /* Removes underline */
+    margin-left: 30px;
+    font-size: 20px;
+  }
+
+
+p, h2{
+    text-align: center; /* centers text */
+}
+
+body{
+    background-color: #f3efe8;
+}
+
+/*Styles buisness name */
+.company-name{
+    font-family: Zain;
+    color: #071d57;
+}
+
+/*Postions links in the header*/
+.links {
+    padding-right: 20px; /*Seperates links for easy readibility */
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    display: flex;
+    margin: 0;
+    color: #000000;
+  }
