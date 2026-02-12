@@ -20,6 +20,21 @@ body{
     background-color: #f3efe8;
 }
 
+button{
+    margin: 22px;
+  
+    padding: 8px 16px;
+    background-color: #058c59;
+    color: white;
+  
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+
+  }
+  
 /*Styles buisness name */
 .company-name{
     font-family: Zain;
@@ -35,4 +50,48 @@ body{
     display: flex;
     margin: 0;
     color: #000000;
+  }
+
+/* ----------------- Employee Table ------------------- */
+
+  .employee-table {
+
+    margin: 0 auto; /* centers table */
+    width: 80%; 
+    border-collapse: collapse;
+    background: rgb(189, 164, 197);
+    border-radius: 12px;
+    overflow: hidden;
+
+    font-family: Verdana; /* Changes fonts */
+    font-size: 18px;
+    color: white;
+  }
+  
+  .employee-table th,
+  .employee-table td {
+    padding: 12px 16px;
+    text-align: left;
+  }
+  
+  /*Table headers */
+  .employee-table thead {
+    background: #796787;
+    font-weight: bolder;
+  }
+  
+  .employee-table tbody tr {
+    border-bottom: 3px solid #B9A7C6;
+    font-weight: bold;
+  }
+  
+  .employee-table button {
+    background: #f54444;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    font-size: 18px;
   }
