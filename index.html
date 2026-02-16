@@ -4,9 +4,6 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Business Management</title>
-        <style>
-          
-        </style>
 
   
 <link rel="stylesheet" href="style.css" />
@@ -14,7 +11,7 @@
 <body>
   <header>
     <div class="links">
-      <h1 class="company-name">Business Management App Name</h1>
+      <h1 class="company-name">Tasktopus</h1>
       <!-- Links to html pages -->
       <nav>
         <a href="index.html">Dashboard</a>
@@ -42,6 +39,7 @@
         <input id="LastName" placeholder="Last Name" required>
         <input id="DateOfBirth" type="date" placeholder="Date Of Birth" required>
         <input id="Position" placeholder="Position" required>
+        <input id="HourlyWage" placeholder="Hourly Wage" required>
         <input id="Email" type="email" placeholder="Email" required>
       
         <button onclick="handleAddEmployee()">Add Employee</button>
@@ -53,13 +51,15 @@
             <tr>
               <th>Name</th>
               <th>Position</th>
+              <th>Hourly Wage</th>
               <th>Email</th>
-              <th>Actions</th>
+              <th>Remove Employee</th>
             </tr>
           </thead>
           <tbody id="EmployeeTable"></tbody>
         </table>
       </div>
+
     </main>
 
     <script src="Algorithm.js"></script>

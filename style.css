@@ -28,7 +28,7 @@ button{
     color: white;
   
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 17px;
     font-weight: bold;
@@ -49,49 +49,48 @@ button{
     align-items: center; /* Center items vertically */
     display: flex;
     margin: 0;
-    color: #000000;
   }
 
 /* ----------------- Employee Table ------------------- */
 
   .employee-table {
-
-    margin: 0 auto; /* centers table */
-    width: 80%; 
-    border-collapse: collapse;
-    background: rgb(189, 164, 197);
-    border-radius: 12px;
-    overflow: hidden;
+    margin: 0 auto; /* centers table on the screen */
+    width: 80%; /* allows table to take up 80% of the screen width */
+    border-radius: 12px; /* Makes the corners round 8 */
+    overflow: hidden; /* Makes sure table content does not spill out of the table*/
 
     font-family: Verdana; /* Changes fonts */
     font-size: 18px;
-    color: white;
+    color: white; /* Makes all fonts on table white */
+    background: rgb(189, 164, 197); 
+
+    /*border-collapse: collapse; */
   }
   
   .employee-table th,
   .employee-table td {
-    padding: 12px 16px;
+    padding: 12px 16px; 
     text-align: left;
   }
   
   /*Table headers */
   .employee-table thead {
-    background: #796787;
-    font-weight: bolder;
+    background: #796787; /* Sets the header background coloor */
+    font-weight: bolder; /* Makes the font bold */
   }
   
   .employee-table tbody tr {
     border-bottom: 3px solid #B9A7C6;
+    
     font-weight: bold;
   }
   
   .employee-table button {
-    background: #f54444;
-    border: none;
-    color: rgb(255, 255, 255);
-    padding: 6px 10px;
-    border-radius: 6px;
-    cursor: pointer;
+    background: #f54444; /* Adds color to the button */
+    font-size: 18px; 
 
-    font-size: 18px;
+    padding: 6px 10px; /* Adds space between button edges and font */
+    border-radius: 6px; /* Rounds the corners of the button */
+    cursor: pointer; /* Changes the cursor of mouse to a pointer */
+
   }
