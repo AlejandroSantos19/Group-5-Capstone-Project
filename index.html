@@ -24,23 +24,30 @@
   </header>
 
     <main>
+
       <div>
-        <h2>Welcome</h2>
-        <p>
-          This can be our home page/Dashboard! :)
-        </p>
+        <h2>Welcome to the Dashboard!</h2>
       </div>
-      <h2>Add/Remove Employees</h2>
+
 
       <!-- Adding Employees-->
-      <div>
+      <div class="add-employee-container">
+        <h2>Add Employees</h2>
+
         <!-- all inputs is required to be filled before adding employees-->
-        <input id="FirstName" placeholder="First Name" required>
-        <input id="LastName" placeholder="Last Name" required>
-        <input id="DateOfBirth" type="date" placeholder="Date Of Birth" required>
-        <input id="Position" placeholder="Position" required>
-        <input id="HourlyWage" placeholder="Hourly Wage" required>
-        <input id="Email" type="email" placeholder="Email" required>
+        
+        <label for="FirstName">Enter First Name:</label>
+        <input class="add-employee-input" id="FirstName" placeholder="First Name" required>
+        <label for="LastName">Enter Last Name:</label>
+        <input class="add-employee-input" id="LastName" placeholder="Last Name" required>
+        <label for="LastName">Enter Date of Birth</label>
+        <input class="add-employee-input" id="DateOfBirth" type="date" placeholder="Date Of Birth" required>
+        <label for="Postion">Enter Employee Position</label>
+        <input class="add-employee-input" id="Position" placeholder="Position" required>
+        <label for="HourlyWage">Enter Hourly Wage</label>
+        <input class="add-employee-input" id="HourlyWage" placeholder="Hourly Wage" required>
+        <label for="Email">Enter Employee Email</label>
+        <input class="add-employee-input" id="Email" type="email" placeholder="Email" required>
       
         <button onclick="handleAddEmployee()">Add Employee</button>
       </div>

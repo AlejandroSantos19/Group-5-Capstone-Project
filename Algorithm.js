@@ -38,7 +38,7 @@ function addEmployee(FirstName, LastName, DateOfBirth, Position, HourlyWage, Ema
   }
 
 //This function is called when the "Add Employee" button is clicked and 
-// takes care of retrieving values from html page so that the employee can be added.
+//takes care of retrieving values from html page so that the employee can be added.
 function handleAddEmployee(){
     //Retrieve values from add employee html fields
     const FirstName = document.getElementById("FirstName").value;
@@ -50,6 +50,12 @@ function handleAddEmployee(){
 
     //Call addEmployee fucntion with the values retrieved from above to add employee
     addEmployee(FirstName, LastName, DateOfBirth, Position, HourlyWage, Email);
+
+    //Clears all Add Employee input fields
+    const EmployeeInputFields = document.querySelectorAll(".add-employee-input");
+    EmployeeInputFields.forEach(input =>{
+      input.value = "";
+    })
 
     //Display all current employees in UI 
     displayEmployees();

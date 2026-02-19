@@ -34,7 +34,8 @@ button{
     font-weight: bold;
 
   }
-  
+
+/* ----------------- Header Section ------------------- */
 /*Styles buisness name */
 .company-name{
     font-family: Zain;
@@ -51,12 +52,50 @@ button{
     margin: 0;
   }
 
+/* ----------------- Add Employee Section ------------------- */
+.add-employee-container{
+  margin: 0px auto 40px auto; 
+  width: 80%;
+  border-radius: 12px; /* Makes the corners round */
+  background: rgb(189, 164, 197, 0.5);
+
+  display: flex;
+  flex-direction: column;
+  font-family: Verdana; /* Changes fonts */
+}
+
+.add-employee-input{
+  margin: 10px auto 30px auto;
+  width: 80%;
+  display: flex;
+  align-items: left;
+  padding: 4px;
+
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.add-employee-input:focus{
+border: 3px solid #071d57;
+outline: none;
+}
+
+label{
+  margin: auto;
+  display: block;
+  width: 80%;
+
+  font-size: 18px;
+  font-weight: bold;
+}
+
 /* ----------------- Employee Table ------------------- */
 
   .employee-table {
-    margin: 0 auto; /* centers table on the screen */
+    margin: 0px auto; /* centers table on the screen */
     width: 80%; /* allows table to take up 80% of the screen width */
-    border-radius: 12px; /* Makes the corners round 8 */
+    border-radius: 12px; /* Makes the corners round */
     overflow: hidden; /* Makes sure table content does not spill out of the table*/
 
     font-family: Verdana; /* Changes fonts */
