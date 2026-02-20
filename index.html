@@ -1,74 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Business Management</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Tasktopus - Login</title>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" id="businessID" placeholder="Business ID" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <div class="forgot">
+          <a href="forgot-password.html">Forgot Password?</a>
+        </div>
 
-  
-<link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <div class="links">
-      <h1 class="company-name">Tasktopus</h1>
-      <!-- Links to html pages -->
-      <nav>
-        <a href="index.html">Dashboard</a>
-        <a href="VisualGraphs.html">Visual Graphs</a>
-        <a href="Calender.html">Calendar</a>
-        <a href="Messages.html">Messages</a>
-        <a href="Account.html">Account</a>
-      </nav>
+        <button type="submit">Login</button>
+      </form>
     </div>
-  </header>
-
-    <main>
-
-      <div>
-        <h2>Welcome to the Dashboard!</h2>
-      </div>
-
-
-      <!-- Adding Employees-->
-      <div class="add-employee-container">
-        <h2>Add Employees</h2>
-
-        <!-- all inputs is required to be filled before adding employees-->
-        
-        <label for="FirstName">Enter First Name:</label>
-        <input class="add-employee-input" id="FirstName" placeholder="First Name" required>
-        <label for="LastName">Enter Last Name:</label>
-        <input class="add-employee-input" id="LastName" placeholder="Last Name" required>
-        <label for="LastName">Enter Date of Birth</label>
-        <input class="add-employee-input" id="DateOfBirth" type="date" placeholder="Date Of Birth" required>
-        <label for="Postion">Enter Employee Position</label>
-        <input class="add-employee-input" id="Position" placeholder="Position" required>
-        <label for="HourlyWage">Enter Hourly Wage</label>
-        <input class="add-employee-input" id="HourlyWage" placeholder="Hourly Wage" required>
-        <label for="Email">Enter Employee Email</label>
-        <input class="add-employee-input" id="Email" type="email" placeholder="Email" required>
-      
-        <button onclick="handleAddEmployee()">Add Employee</button>
-      </div>
-
-      <div>
-        <table class="employee-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Hourly Wage</th>
-              <th>Email</th>
-              <th>Remove Employee</th>
-            </tr>
-          </thead>
-          <tbody id="EmployeeTable"></tbody>
-        </table>
-      </div>
-
-    </main>
-
-    <script src="Algorithm.js"></script>
   </body>
 </html>
