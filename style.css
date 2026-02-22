@@ -133,3 +133,52 @@ label{
     cursor: pointer; /* Changes the cursor of mouse to a pointer */
 
   }
+
+
+  /* ---------------- Calendar ---------------- */
+
+.calendar-container {
+  width: 80%;
+  margin: 40px auto;
+  text-align: center;
+  font-family: Verdana;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.calendar-header button {
+  font-size: 20px;
+  padding: 6px 12px;
+}
+
+.calendar-days,
+.calendar-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-days div {
+  font-weight: bold;
+  background: #796787;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.calendar-dates div {
+  background: #B9A7C6;
+  padding: 15px;
+  border-radius: 6px;
+  min-height: 40px;
+}
+
+.calendar-dates div:hover {
+  background: #9d8ab0;
+  cursor: pointer;
+}
