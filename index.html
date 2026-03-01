@@ -9,15 +9,33 @@
   <body>
     <div class="login-container">
       <h2>Login</h2>
+
+      <!--login form-->
       <form id="loginForm">
-        <input type="text" id="businessID" placeholder="Business ID" required />
-        <input type="email" id="email" placeholder="Email" required />
-        <input type="password" id="password" placeholder="Password" required />
+        <input
+          type="text"
+          id="loginBusinessID"
+          placeholder="Business ID"
+          required
+        />
+        <input type="email" id="loginEmail" placeholder="Email" required />
+        <input
+          type="password"
+          id="loginPassword"
+          placeholder="Password"
+          required
+        />
+
         <div class="forgot">
           <a href="forgot-password.html">Forgot Password?</a>
         </div>
 
         <button type="submit">Login</button>
+
+        <p>
+          New Here?
+          <a href="signup.html" id="showSignup">Create an Account</a>
+        </p>
       </form>
     </div>
   </body>
