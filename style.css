@@ -182,3 +182,29 @@ label{
   background: #9d8ab0;
   cursor: pointer;
 }
+
+/*---------Login & Signup Page Styling---------*/
+
+.auth-page{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-card{
+  width: 100%;
+  max-width: 380px;
+  padding: 35px 30px;
+  border-radius: 12px;
+  background-color: rgb(189, 164, 197, 0.5);
+  font-family: Verdana;
+}
+
+.auth-card form{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  
+}
