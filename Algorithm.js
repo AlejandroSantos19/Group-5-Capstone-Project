@@ -2,6 +2,7 @@
 //This function checks to see if there are employee objects in the (JSON local storage) 
 //if it hasn't been created then the function creates it.
 function createDatabase(){
+
   //The if statement checks and sees if there are no employee objects in local storage, if not, it creates an empty array of employees.
     if (!localStorage.getItem("employees")) {
 
@@ -19,6 +20,7 @@ function addEmployee(FirstName, LastName, DateOfBirth, Position, HourlyWage, Ema
   
     // Creates a new employee object
     const newEmployee = {
+
       // Date.now() gives a unique number based on the time and can be used as an ID. An example would be (17342362342)
       id: Date.now(),
       FirstName: FirstName,
@@ -53,7 +55,7 @@ function handleAddEmployee(){
 
     //Clears all Add Employee input fields
     const EmployeeInputFields = document.querySelectorAll(".add-employee-input");
-    EmployeeInputFields.forEach(input =>{
+    EmployeeInputFields.forEach(input => {
       input.value = "";
     })
 
@@ -63,12 +65,19 @@ function handleAddEmployee(){
 
 //This function runs when the remove employee button is clicked and removes the specified employee
 function handleRemoveEmployee(id) {
-  //Calls getEmployees function which returns an array of all the employee objects
-  let employees = getEmployees();
 
-  //Filters out the removed employee
-  employees = employees.filter(emp => emp.id !== id);
-  localStorage.setItem("employees", JSON.stringify(employees));
+  if(confirm("Are you sure you want to remove this employee?")){
+    //Calls getEmployees function which returns an array of all the employee objects
+    let employees = getEmployees();
+
+    //Filters out the removed employee
+    employees = employees.filter(emp => emp.id !== id);
+    localStorage.setItem("employees", JSON.stringify(employees));
+  }
+  else{
+    alert("You have canceled the action of deleting the employee");
+  }
+
 
   //Calls the function displayEmployees and displays all employees in the employee table.
   displayEmployees();
@@ -112,6 +121,6 @@ function displayEmployees() {
   }
 
 
-//Run this once when the page loads
+//These function run when the page loads
 createDatabase();
 displayEmployees();
