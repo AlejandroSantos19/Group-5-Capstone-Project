@@ -161,6 +161,62 @@ const server = http.createServer((req, res) => {
             res.end(JSON.stringify({message: "Employee was deleted successfully"}));
         });
     }
+
+    if(req.method === "GET" && req.url === "/stats"){
+
+        //This is the sql statement used to retrieve the stats we want from our MySQL database
+        const sql = "SELECT COUNT(*) AS TotalNumberEmployees, SUM(hourly_wage) AS TotalHourlyWage, MIN(hourly_wage) AS LowestHourlyWage, MAX(hourly_wage) AS HighestHourlyWage FROM employees";
+        
+        //This executes and runs the sql statement above
+        connection.query(sql, (err, results) => {
+
+           // console.log("err: " + err);
+           // console.log("res: " + results);
+
+            if(err){
+                //This sends a 500 Internal Server Error code which indicates there was a problem with the server.
+                res.writeHead(500, {"Content-Type": "application/json"});
+                res.end(JSON.stringify({message: "Database error"}));
+                return;
+            }
+
+            //This stores and saves the stats retrieved from the sql statement that we created above
+            const TotalNumberEmployees = results[0].TotalNumberEmployees;
+            const TotalHourlyWage = results[0].TotalHourlyWage;
+            const LowestHourlyWage = results[0].LowestHourlyWage;
+            const HighestHourlyWage = results[0].HighestHourlyWage;
+
+            //This sends the results back to our Algorithm.js file so that the stats can be displayed
+            res.writeHead(200, {"Content-Type": "application/json"});
+            res.end(JSON.stringify({TotalNumberEmployees, TotalHourlyWage, LowestHourlyWage, HighestHourlyWage}));
+        })
+
+    }
+
+    if(req.method === "GET" && req.url.startsWith("/search/")){
+        //This retrieves the name given by the user from the url. The name is stored in the variable name
+        const name = req.url.split("/")[2];
+        console.log(name);
+
+        //This is the sql statement used to retrieve the employees that matches the first name given by the user. 
+        //The ? is a placeholder value which is replaced by the name given by the user
+        const sql = "SELECT * FROM employees WHERE first_name = ?";
+
+        //This executes the sql command that we created above
+        connection.query(sql, [name], (err, results) => {
+            if(err){
+                //This sends a 500 Internal Server Error code which indicates there was a problem with the server.
+                res.writeHead(500, {"Content-Type": "application/json"});
+                res.end(JSON.stringify({message: "Database error"}));
+                return;
+            }
+
+            //If everything worked okay then this runs and sends the results in form of JSON.
+            //This sends a 200 OK status code which indicates that the request has succeeded
+            res.writeHead(200, {"Content-Type": "application/json"});
+            res.end(JSON.stringify(results));
+        });
+    }
 });
 
 server.listen(3000, () => {

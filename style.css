@@ -1,6 +1,7 @@
 /*Imports fonts */
 @import url('https://fonts.googleapis.com/css2?family=Geo:ital@0;1&family=PT+Sans+Narrow:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Geo:ital@0;1&family=PT+Sans+Narrow:wght@400;700&family=Pirata+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geo:ital@0;1&family=Iosevka+Charon+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=PT+Sans+Narrow:wght@400;700&family=Pirata+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
 
 /*styles the webpage links */
 a {
@@ -11,9 +12,18 @@ a {
     font-size: 20px;
   }
 
+h1{
+  text-align: center; /* centers text */
+  font-family: "Iosevka Charon Mono", monospace;
+  font-weight: bolder;
+  font-size: 40px;
+}
 
 p, h2{
     text-align: center; /* centers text */
+    font-family: "Iosevka Charon Mono", monospace;
+    font-weight: bolder;
+    font-size: 30px;
 }
 
 body{
@@ -21,20 +31,35 @@ body{
 }
 
 button{
-    margin: 22px;
+
+    display: flex;
+    width: 81%;
+    justify-content: center;
   
-    padding: 8px 16px;
+    padding: 8px 18px;
     background-color: #058c59;
     color: white;
   
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 17px;
+    font-size: 19px;
     font-weight: bold;
+
+    transition: all 0.6s ease; /* This gives our button a smooth transition when hovered on */
 
   }
 
+/* This enlarges the button when hovered over it */
+button:hover{
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/*This shrinks the button when it is clicked. It gives a animation like the button is being pressed down */
+button:active{
+  transform: scale(0.97);
+}
 /* ----------------- Header Section ------------------- */
 /*Styles buisness name */
 .company-name{
@@ -58,10 +83,12 @@ button{
   width: 80%;
   border-radius: 12px; /* Makes the corners round */
   background: rgb(189, 164, 197, 0.5);
+  padding-bottom: 10px;
 
   display: flex;
   flex-direction: column;
-  font-family: Verdana; /* Changes fonts */
+  align-items: center;
+  font-family: Zain; /* Changes fonts */
 }
 
 .add-employee-input{
@@ -73,7 +100,7 @@ button{
 
   border: none;
   border-radius: 6px;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .add-employee-input:focus{
@@ -86,7 +113,7 @@ label{
   display: block;
   width: 80%;
 
-  font-size: 18px;
+  font-size: 22px;
   font-weight: bold;
 }
 
@@ -134,7 +161,43 @@ label{
 
   }
 
+  /* ---------------- Search Employee ---------------- */
 
+  .search-employee-container{
+    margin: 40px auto 40px auto; 
+    width: 80%;
+    border-radius: 12px; /* Makes the corners round */
+    padding-bottom: 10px;
+    align-items: center;
+    background: rgb(189, 164, 197, 0.5);
+    
+  
+    display: flex;
+    flex-direction: column;
+    font-family: Zain; /* Changes fonts */
+    gap: 10px
+  }
+
+  .search-employee-input{
+    margin: 10px auto 30px auto;
+    width: 80%;
+    display: flex;
+    align-items: left;
+    padding: 4px;
+  
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+  }
+  
+  .search-employee-input:focus{
+  border: 3px solid #071d57;
+  outline: none;
+  }
+
+  .search-employee-button{
+    background-color: rgb(241, 153, 51);
+  }
   /* ---------------- Calendar ---------------- */
 
 .calendar-container {
@@ -154,6 +217,7 @@ label{
 .calendar-header button {
   font-size: 20px;
   padding: 6px 12px;
+  width: 10%;
 }
 
 .calendar-days,
@@ -183,7 +247,7 @@ label{
   cursor: pointer;
 }
 
-/*---------Login & Signup Page Styling---------*/
+/*--------- Login & Signup Page Styling ---------*/
 
 .auth-page{
   min-height: 100vh;
@@ -208,3 +272,23 @@ label{
 
   
 }
+
+/*--------- Visual Graphs Styling ---------*/
+
+.quick-stats-container{
+  margin: 0px auto 40px auto; 
+  padding-bottom: 40px;
+  width: 80%;
+  border-radius: 12px; /* Makes the corners round */
+  background: rgb(246, 181, 106);
+
+  display: flex;
+  flex-direction: column;
+  font-family: Zain; /* Changes fonts */
+  gap: 15px;
+} 
+
+
+
+
+

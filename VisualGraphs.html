@@ -18,7 +18,7 @@
       
       <!-- Links to html pages -->
       <nav>
-        <a href="index.html">Dashboard</a>
+        <a href="dashboard.html">Dashboard</a> <!-- CHANGE THIS BACK TO INDEX.HTML Eventually... -->
         <a href="VisualGraphs.html">Visual Graphs</a>
         <a href="Calendar.html">Calendar</a>
         <a href="Messages.html">Messages</a>
@@ -29,13 +29,30 @@
 
     <main>
       <div>
-        <h2>Visual Graphs Page</h2>
-        <p>
-          This is the Visual Graphs page.
-        </p>
+        <h1>Visual Graphs and Stats Page</h1>
 
-        <!--Added a new comment-->
+        <div class="quick-stats-container">
+          <h2>Quick Stats</h2>
 
+          <label class=".quick-stats-label">Total Number of Employees:
+            <span id="TotalNumberEmployees"></span>
+          </label>
+          <label>Total Hourly Wage Paid: $
+            <span id="TotalHourlyWage"></span>
+          </label>
+          <label>Average Hourly Wage Paid: $
+            <span id="AverageHourlyWage"></span>
+          </label>
+          <label>Lowest Hourly Wage Paid: $
+            <span id="LowestHourlyWage"></span>
+          </label>
+          <label>Highest Hourly Wage Paid: $
+            <span id="HighestHourlyWage"></span>
+          </label>
+          
+
+        </div>
+        
       </div>
     </main>
 

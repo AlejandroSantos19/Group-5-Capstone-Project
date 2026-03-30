@@ -51,6 +51,9 @@ async function handleRemoveEmployee(id) {
 
       //Calls the function displayEmployees and displays all employees in the employee table.
       displayEmployees();
+
+      //This updates the search employee table if an employee was removed using the search employee table.
+      handleSearchEmployee();
     } catch (error){
         console.error("There was an error deleting the employee:", error)
     }
@@ -105,6 +108,80 @@ async function displayEmployees() {
 
 }
 
+async function displayQuickStats(){
+  try{
+    //This retrieves total number of employees, the total form the hourly wage column, the lowest hourly wage, and the highest hourly wage from our MySQl database. 
+    //The results are saves into the stats variable
+    const response = await fetch("http://localhost:3000/stats");
+    const stats = await response.json();
+
+    //This displays all the stats
+    console.log(stats);
+    document.getElementById("TotalNumberEmployees").textContent = stats.TotalNumberEmployees;
+    document.getElementById("TotalHourlyWage").textContent = stats.TotalHourlyWage;
+    document.getElementById("AverageHourlyWage").textContent = (stats.TotalHourlyWage / stats.TotalNumberEmployees).toFixed(2); //The average hourly wage is rounded to two decimal places
+    document.getElementById("LowestHourlyWage").textContent = stats.LowestHourlyWage;
+    document.getElementById("HighestHourlyWage").textContent = stats.HighestHourlyWage;
+    
+
+  } catch(error){
+    //This displays an error if there was an error displaying the quick stats
+    console.error("There was an error displaying the quick stats: ", error);
+  }
+}
+
+async function handleSearchEmployee(){
+  try{
+
+    //This retrieves the first name of the employee that a user is wanting to search for
+    const FirstName = document.getElementById("SearchFirstName").value;
+
+    //This retrieves the employees from our MySQL table with the first name that was input by the user
+    const response = await fetch(`http://localhost:3000/search/${FirstName}`, {
+      method: "GET"
+      });
+
+     //This retrieves and stores all the employees that match with our search into the variable employees
+     const employees = await response.json();
+
+     //This retrieves our search employee table so we can update it 
+     const table = document.getElementById("SearchEmployeeTable");
+
+      //Removes all exisitng rows from the search employee table
+      table.innerHTML = "";
+  
+      //This loops through all of the employees with the matched first name and displays their information onto our html table
+      employees.forEach(employee => {
+
+        console.log(employee);
+
+        //Creates a new table row
+        const row = document.createElement("tr");
+    
+        //Fills the newly created row with the following
+        //For each {employee. } the column name has to be the same as our MySQL employees table column names
+        row.innerHTML = `
+          <td>${employee.first_name} ${employee.last_name}</td>
+          <td>${employee.position}</td>
+          <td>${employee.hourly_wage}</td>
+          <td>${employee.email}</td>
+          <td>${employee.phone_number}</td>
+          <td>
+            <button onclick="handleRemoveEmployee(${employee.id})">
+              Remove
+            </button>
+          </td>
+        `;
+        
+        //Adds the new row to the table
+        table.appendChild(row);
+      });
+  }catch(error){
+    console.error("There was an error searching for an employee: ", error);
+  }
+}
+
 
 //These function run when the page loads and displays all of our employees in our website table.
 displayEmployees();
+displayQuickStats();
