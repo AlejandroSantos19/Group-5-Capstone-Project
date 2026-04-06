@@ -1,57 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Business Management</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Management</title>
 
-  
-<link rel="stylesheet" href="style.css"/>
-</head>
-<body>
-  <header>
-    <div class="links">
-      <h1 class="company-name">Tasktopus</h1>
-      <!-- Links to html pages -->
-      <nav>
-        <a href="index.html">Dashboard</a>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="app-topbar">
+      <div class="topbar-left">
+        <a href="dashboard.html" class="brand-wrap">
+          <img
+            src="tasktopus_logo.png"
+            alt="Tasktopus logo"
+            class="brand-logo small-logo"
+          />
+        </a>
+      </div>
+      <div class="topbar-center">
+        <h1 class="topbar-title">Tasktopus</h1>
+      </div>
+      <div class="topbar-right"></div>
+    </header>
+
+    <nav class="app-nav">
+      <div class="app-nav-links">
+        <a href="dashboard.html">Dashboard</a>
         <a href="VisualGraphs.html">Visual Graphs</a>
         <a href="Calendar.html">Calendar</a>
         <a href="Messages.html">Messages</a>
         <a href="Account.html">Account</a>
-      </nav>
-    </div>
-  </header>
+      </div>
+    </nav>
 
-    <main> 
-
+    <main class="app-main">
       <div>
         <h1>Welcome to the Dashboard!</h1>
       </div>
 
-<!-- this is a new comment -->
-     
+      <!-- this is a new comment -->
+
       <!-- Adding Employees-->
       <div class="add-employee-container">
         <h2>Add Employees</h2>
 
         <!-- all inputs is required to be filled before adding employees-->
-        
+
         <label for="FirstName">Enter First Name:</label>
-        <input class="add-employee-input" id="FirstName" placeholder="First Name" required>
+        <input
+          class="add-employee-input"
+          id="FirstName"
+          placeholder="First Name"
+          required
+        />
         <label for="LastName">Enter Last Name:</label>
-        <input class="add-employee-input" id="LastName" placeholder="Last Name" required>
+        <input
+          class="add-employee-input"
+          id="LastName"
+          placeholder="Last Name"
+          required
+        />
         <label for="DateOfBirth">Enter Date of Birth</label>
-        <input class="add-employee-input" id="DateOfBirth" type="date" placeholder="Date Of Birth" required>
+        <input
+          class="add-employee-input"
+          id="DateOfBirth"
+          type="date"
+          placeholder="Date Of Birth"
+          required
+        />
         <label for="Position">Enter Employee Position</label>
-        <input class="add-employee-input" id="Position" placeholder="Position" required>
+        <input
+          class="add-employee-input"
+          id="Position"
+          placeholder="Position"
+          required
+        />
         <label for="HourlyWage">Enter Hourly Wage (e.g. 14.34) </label>
-        <input class="add-employee-input" id="HourlyWage" placeholder="Hourly Wage" required>
+        <input
+          class="add-employee-input"
+          id="HourlyWage"
+          placeholder="Hourly Wage"
+          required
+        />
         <label for="Email">Enter Employee Email</label>
-        <input class="add-employee-input" id="Email" type="email" placeholder="Email" required>
-        <label for="PhoneNumber">Enter Employee Phone Number (e.g. 123-345-6789)</label>
-        <input class="add-employee-input" id="PhoneNumber"  placeholder="Phone Number" required>
-      
+        <input
+          class="add-employee-input"
+          id="Email"
+          type="email"
+          placeholder="Email"
+          required
+        />
+        <label for="PhoneNumber"
+          >Enter Employee Phone Number (e.g. 123-345-6789)</label
+        >
+        <input
+          class="add-employee-input"
+          id="PhoneNumber"
+          placeholder="Phone Number"
+          required
+        />
+
         <button onclick="handleAddEmployee()">Add Employee</button>
       </div>
 
@@ -75,10 +124,16 @@
         <h2>Search Employee</h2>
 
         <label for="FirstName">Enter First Name:</label>
-        <input class="search-employee-input" id="SearchFirstName" placeholder="First Name" required>
+        <input
+          class="search-employee-input"
+          id="SearchFirstName"
+          placeholder="First Name"
+          required
+        />
 
-        <button class="search-employee-button" onclick="handleSearchEmployee()">Search Employee</button>
-        
+        <button class="search-employee-button" onclick="handleSearchEmployee()">
+          Search Employee
+        </button>
 
         <table class="employee-table">
           <thead>
@@ -94,7 +149,6 @@
           <tbody id="SearchEmployeeTable"></tbody>
         </table>
       </div>
-
     </main>
 
     <script src="Algorithm.js"></script>

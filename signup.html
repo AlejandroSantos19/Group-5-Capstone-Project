@@ -7,26 +7,52 @@
     <title>Tasktopus - Sign Up</title>
   </head>
 
-  <body class="auth-page">
-    <div class="login-container auth-card">
-      <h2>Create Account</h2>
+  <body class="auth-page dashboard-login-page">
+    <header class="app-topbar auth-topbar">
+      <div class="topbar-left">
+        <a href="index.html" class="brand-wrap">
+          <img
+            src="tasktopus_logo.png"
+            alt="Tasktopus logo"
+            class="brand-logo small-logo"
+          />
+        </a>
+      </div>
+      <div class="topbar-center">
+        <h1 class="topbar-title">Tasktopus</h1>
+      </div>
+      <div class="topbar-right"></div>
+    </header>
 
-      <form id="signupForm">
-        <input type="email" id="signupEmail" placeholder="Email" required />
-        <input type="date" id="signupBirthday" required />
-        <input
-          type="password"
-          id="signupPassword"
-          placeholder="Password"
-          required
-        />
-
-        <button type="submit">Create Account</button>
-        <p>
-          Already have an account?
-          <a href="index.html">Return to Login</a>
+    <main class="auth-main">
+      <div class="auth-page-header">
+        <h2>Create your Tasktopus account</h2>
+        <p class="auth-subtext">
+          Get started with a clean, organized workspace.
         </p>
-      </form>
-    </div>
+      </div>
+
+      <div class="login-container auth-card login-card-enhanced">
+        <form id="signupForm">
+          <label for="signupEmail">Email</label>
+          <input type="email" id="signupEmail" placeholder="Email" required />
+          <label for="signupPassword">Password</label>
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Password"
+            required
+          />
+
+          <button id="submit" type="submit">Create Account</button>
+          <p id="signupMessage"></p>
+          <p class="auth-footer-text">
+            Already have an account?
+            <a href="index.html">Return to Login</a>
+          </p>
+        </form>
+      </div>
+    </main>
+    <script type="module" src="signup.js" defer></script>
   </body>
 </html>

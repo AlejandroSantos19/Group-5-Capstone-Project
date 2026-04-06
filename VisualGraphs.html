@@ -1,58 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Business Management</title>
-        <style>
-          
-        </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Management</title>
+    <style></style>
 
-  
-<link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <div class="links">
-      <h1 class="company-name">Tasktopus</h1>
-      
-      <!-- Links to html pages -->
-      <nav>
-        <a href="dashboard.html">Dashboard</a> <!-- CHANGE THIS BACK TO INDEX.HTML Eventually... -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="app-topbar">
+      <div class="topbar-left">
+        <a href="dashboard.html" class="brand-wrap">
+          <img
+            src="tasktopus_logo.png"
+            alt="Tasktopus logo"
+            class="brand-logo small-logo"
+          />
+        </a>
+      </div>
+      <div class="topbar-center">
+        <h1 class="topbar-title">Tasktopus</h1>
+      </div>
+      <div class="topbar-right"></div>
+    </header>
+
+    <nav class="app-nav">
+      <div class="app-nav-links">
+        <a href="dashboard.html">Dashboard</a>
         <a href="VisualGraphs.html">Visual Graphs</a>
         <a href="Calendar.html">Calendar</a>
         <a href="Messages.html">Messages</a>
         <a href="Account.html">Account</a>
-      </nav>
-    </div>
-  </header>
+      </div>
+    </nav>
 
-    <main>
+    <main class="app-main">
       <div>
         <h1>Visual Graphs and Stats Page</h1>
 
         <div class="quick-stats-container">
           <h2>Quick Stats</h2>
 
-          <label class=".quick-stats-label">Total Number of Employees:
+          <label class=".quick-stats-label"
+            >Total Number of Employees:
             <span id="TotalNumberEmployees"></span>
           </label>
-          <label>Total Hourly Wage Paid: $
+          <label
+            >Total Hourly Wage Paid: $
             <span id="TotalHourlyWage"></span>
           </label>
-          <label>Average Hourly Wage Paid: $
+          <label
+            >Average Hourly Wage Paid: $
             <span id="AverageHourlyWage"></span>
           </label>
-          <label>Lowest Hourly Wage Paid: $
+          <label
+            >Lowest Hourly Wage Paid: $
             <span id="LowestHourlyWage"></span>
           </label>
-          <label>Highest Hourly Wage Paid: $
+          <label
+            >Highest Hourly Wage Paid: $
             <span id="HighestHourlyWage"></span>
           </label>
-          
-
         </div>
-        
       </div>
     </main>
 
