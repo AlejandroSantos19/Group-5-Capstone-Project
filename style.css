@@ -5,29 +5,28 @@
 
 /*styles the webpage links */
 a {
-    color: #4c5f90; /* Changes the link color */
-    font-family: Verdana; /* Changes fonts of links */
-    text-decoration: none; /* Removes underline */
-    margin-left: 30px;
-    font-size: 20px;
-  }
+  color: #2f4c90;
+  font-family: Verdana, sans-serif;
+  text-decoration: none;
+}
 
 h1{
-  text-align: center; /* centers text */
+  text-align: center;
   font-family: "Iosevka Charon Mono", monospace;
   font-weight: bolder;
   font-size: 40px;
 }
 
 p, h2{
-    text-align: center; /* centers text */
-    font-family: "Iosevka Charon Mono", monospace;
-    font-weight: bolder;
-    font-size: 30px;
+  text-align: center;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-weight: bolder;
+  font-size: 30px;
 }
 
 body{
-    background-color: #f3efe8;
+  margin: 0;
+  background-color: #f3efe8;
 }
 
 button{
@@ -37,7 +36,7 @@ button{
     justify-content: center;
   
     padding: 8px 18px;
-    background-color: #058c59;
+    background-color: #6b3f8c;
     color: white;
   
     border: none;
@@ -60,22 +59,88 @@ button:hover{
 button:active{
   transform: scale(0.97);
 }
-/* ----------------- Header Section ------------------- */
-/*Styles buisness name */
-.company-name{
-    font-family: Zain;
-    color: #071d57;
+/* ----------------- Shared Header ------------------- */
+.app-topbar{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  background: #6b3f8c;
 }
 
-/*Postions links in the header*/
-.links {
-    padding-right: 20px; /*Seperates links for easy readibility */
-    display: flex; /* Flexbox for alignment */
-    justify-content: space-between; /* Space between items */
-    align-items: center; /* Center items vertically */
-    display: flex;
-    margin: 0;
-  }
+.topbar-left{
+  display: flex;
+  align-items: center;
+}
+
+.topbar-center{
+  display: flex;
+  justify-content: center;
+}
+
+.topbar-right{
+  min-height: 1px;
+}
+
+.brand-wrap{
+  margin-left: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand-logo{
+  display: block;
+  width: 48px;
+  height: auto;
+}
+
+.small-logo{
+  width: 70px;
+}
+
+.topbar-title{
+  margin: 0;
+  color: #ffffff;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-size: 34px;
+  letter-spacing: 0.5px;
+}
+
+.app-nav{
+  background: rgba(107, 63, 140, 0.14);
+  border-bottom: 1px solid rgba(7, 29, 87, 0.1);
+}
+
+.app-nav-links{
+  width: min(94%, 1200px);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.app-nav-links a{
+  font-size: 16px;
+  font-family: Verdana, sans-serif;
+  font-weight: 700;
+  color: #2f3f67;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.app-nav-links a:hover{
+  background: rgba(107, 63, 140, 0.18);
+}
+
+.app-main{
+  width: min(94%, 1200px);
+  margin: 28px auto 44px auto;
+}
 
 /* ----------------- Add Employee Section ------------------- */
 .add-employee-container{
@@ -88,7 +153,7 @@ button:active{
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: Zain; /* Changes fonts */
+  font-family: Verdana, sans-serif;
 }
 
 .add-employee-input{
@@ -113,8 +178,9 @@ label{
   display: block;
   width: 80%;
 
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
+  font-family: Verdana, sans-serif;
 }
 
 /* ----------------- Employee Table ------------------- */
@@ -142,7 +208,7 @@ label{
   /*Table headers */
   .employee-table thead {
     background: #796787; /* Sets the header background coloor */
-    font-weight: bolder; /* Makes the font bold */
+    font-weight: bolder; 
   }
   
   .employee-table tbody tr {
@@ -163,7 +229,7 @@ label{
 
   /* ---------------- Search Employee ---------------- */
 
-  .search-employee-container{
+.search-employee-container{
     margin: 40px auto 40px auto; 
     width: 80%;
     border-radius: 12px; /* Makes the corners round */
@@ -174,7 +240,7 @@ label{
   
     display: flex;
     flex-direction: column;
-    font-family: Zain; /* Changes fonts */
+    font-family: Verdana, sans-serif;
     gap: 10px
   }
 
@@ -251,26 +317,182 @@ label{
 
 .auth-page{
   min-height: 100vh;
+  margin: 0;
+  background: white;
+}
+
+.dashboard-login-page{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+.auth-topbar{
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.auth-main{
+  width: min(92%, 520px);
+  margin: 38px auto 44px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 18px;
   align-items: center;
+}
+
+.auth-page-header{
+  text-align: center;
+  color: #071d57;
+}
+
+.auth-page-header .eyebrow{
+  margin: 0 0 8px 0;
+  text-align: center;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-size: 14px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #4c5f90;
+}
+
+.auth-page-header h2{
+  margin: 0;
+  text-align: center;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-size: 40px;
+  line-height: 1.15;
+}
+
+.auth-subtext{
+  margin: 14px 0 0 0;
+  text-align: center;
+  font-family: Verdana, sans-serif;
+  font-size: 17px;
+  line-height: 1.45;
+  color: #33425f;
 }
 
 .auth-card{
   width: 100%;
-  max-width: 380px;
-  padding: 35px 30px;
-  border-radius: 12px;
-  background-color: rgb(189, 164, 197, 0.5);
-  font-family: Verdana;
+  max-width: 450px;
+  padding: 30px 28px;
+  border-radius: 16px;
+  border: 3px solid rgba(25, 41, 138, 0.144);
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 14px 30px rgba(7, 29, 87, 0.14);
+  font-family: Verdana, sans-serif;
+}
+
+.auth-card h2{
+  margin: 0 0 18px 0;
+  text-align: center;
+  color: #071d57;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-size: 28px;
 }
 
 .auth-card form{
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
+}
 
-  
+.auth-card label{
+  width: 100%;
+  margin: 0;
+  color: #1d2e58;
+  font-family: Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.auth-card input{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 12px;
+  border-radius: 8px;
+  border: 1px solid #b4bfd7;
+  background: rgba(255, 255, 255, 0.94);
+  font-size: 15px;
+}
+
+.auth-card input:focus{
+  outline: none;
+  border-color: #4c5f90;
+  box-shadow: 0 0 0 3px rgba(76, 95, 144, 0.18);
+}
+
+.auth-card button{
+  width: 100%;
+  margin-top: 8px;
+  justify-content: center;
+  display: inline-flex;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 17px;
+}
+
+.auth-card p{
+  margin: 6px 0 0 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.4;
+  font-family: Verdana, sans-serif;
+}
+
+.auth-page a{
+  margin-left: 0;
+  font-size: 14px;
+  color: #274a93;
+  font-family: Verdana, sans-serif;
+  font-weight: 700;
+}
+
+.forgot{
+  text-align: center;
+}
+
+.forgot a{
+  font-size: 13px;
+}
+
+.auth-footer-text{
+  margin-top: 10px;
+}
+
+#loginMessage,
+#signupMessage,
+#resetMessage{
+  margin-top: 2px;
+  min-height: 18px;
+  font-size: 13px;
+  color: #da7b00;
+}
+
+@media (max-width: 860px){
+  .topbar-title{
+    font-size: 28px;
+  }
+
+  .auth-main{
+    width: min(94%, 520px);
+    gap: 16px;
+    margin-top: 14px;
+  }
+
+  .auth-page-header h2{
+    font-size: 32px;
+  }
+
+  .app-nav-links{
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .app-nav-links a{
+    font-size: 14px;
+    padding: 5px 8px;
+  }
 }
 
 /*--------- Visual Graphs Styling ---------*/
@@ -287,6 +509,8 @@ label{
   font-family: Zain; /* Changes fonts */
   gap: 15px;
 } 
+
+
 
 
 
