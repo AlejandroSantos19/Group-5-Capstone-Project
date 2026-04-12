@@ -3,10 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Business Management</title>
-    <style></style>
-
     <link rel="stylesheet" href="style.css" />
+    <title>Account - Tasktopus</title>
   </head>
   <body>
     <header class="app-topbar">
@@ -36,12 +34,130 @@
     </nav>
 
     <main class="app-main">
-      <div>
-        <h2>Account Page</h2>
-        <p>This is the account page.</p>
+      <h2>Account</h2>
+
+      <!-- Account Info -->
+      <div class="account-section">
+        <h3>Account Info</h3>
+        <p class="account-info-row">
+          Signed in as: <span id="displayEmail">Loading...</span>
+        </p>
+      </div>
+
+      <!-- Change Password -->
+      <div class="account-section">
+        <h3>Change Password</h3>
+        <label class="account-label" for="newPassword">New Password</label>
+        <input
+          class="account-input"
+          id="newPassword"
+          type="password"
+          placeholder="Enter new password (min 6 chars)"
+        />
+        <label class="account-label" for="confirmPassword"
+          >Confirm Password</label
+        >
+        <input
+          class="account-input"
+          id="confirmPassword"
+          type="password"
+          placeholder="Re-enter new password"
+        />
+        <button class="account-btn" onclick="handleChangePassword()">
+          Update Password
+        </button>
+        <p class="account-status" id="passwordStatus"></p>
+      </div>
+
+      <!-- Sign Out -->
+      <div class="account-section">
+        <h3>Sign Out</h3>
+        <p class="account-info-row">
+          Sign out of your Tasktopus account on this device.
+        </p>
+        <button
+          class="account-btn account-btn-danger"
+          onclick="handleSignOut()"
+        >
+          Sign Out
+        </button>
       </div>
     </main>
 
-    <script src="Algorithm.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+        signOut,
+        updatePassword,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCdpmhy5cSR7P2r2qDY3asX0EUAeOl9KMI",
+        authDomain: "tasktopus-capstone.firebaseapp.com",
+        projectId: "tasktopus-capstone",
+        storageBucket: "tasktopus-capstone.firebasestorage.app",
+        messagingSenderId: "87561286935",
+        appId: "1:87561286935:web:43d7aa9e420c79da23f352",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Show signed-in email
+      onAuthStateChanged(auth, (user) => {
+        if (!user) {
+          window.location.href = "index.html";
+          return;
+        }
+        document.getElementById("displayEmail").textContent = user.email;
+      });
+
+      // Change password
+      window.handleChangePassword = async function () {
+        const newPass = document.getElementById("newPassword").value;
+        const confirm = document.getElementById("confirmPassword").value;
+        const status = document.getElementById("passwordStatus");
+
+        if (newPass.length < 6) {
+          showStatus(
+            status,
+            "Password must be at least 6 characters.",
+            "error",
+          );
+          return;
+        }
+        if (newPass !== confirm) {
+          showStatus(status, "Passwords do not match.", "error");
+          return;
+        }
+
+        try {
+          await updatePassword(auth.currentUser, newPass);
+          showStatus(status, "Password updated successfully!", "success");
+          document.getElementById("newPassword").value = "";
+          document.getElementById("confirmPassword").value = "";
+        } catch (err) {
+          showStatus(status, err.message, "error");
+        }
+      };
+
+      // Sign out
+      window.handleSignOut = async function () {
+        if (!confirm("Are you sure you want to sign out?")) return;
+        await signOut(auth);
+        window.location.href = "index.html";
+      };
+
+      function showStatus(el, msg, type) {
+        el.textContent = msg;
+        el.className = `account-status ${type}`;
+        setTimeout(() => {
+          el.textContent = "";
+          el.className = "account-status";
+        }, 5000);
+      }
+    </script>
   </body>
 </html>
