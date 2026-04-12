@@ -59,6 +59,7 @@ button:hover{
 button:active{
   transform: scale(0.97);
 }
+
 /* ----------------- Shared Header ------------------- */
 .app-topbar{
   display: grid;
@@ -138,7 +139,7 @@ button:active{
 }
 
 .app-main{
-  width: min(94%, 1200px);
+ /* width: min(94%, 1200px); */ 
   margin: 28px auto 44px auto;
 }
 
@@ -173,15 +174,43 @@ border: 3px solid #071d57;
 outline: none;
 }
 
-label{
+.add-employee-label{
   margin: auto;
   display: block;
   width: 80%;
+ 
 
   font-size: 20px;
   font-weight: bold;
   font-family: Verdana, sans-serif;
 }
+
+/* ----------------- Employee Table Controls ------------------- */
+
+.table-controls{
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.number-employees-displayed-label{
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Iosevka Charon Mono", monospace;
+}
+
+select{
+  padding: 5px 20px 5px 5px;
+  font-size: 16px;
+  font-family: "Iosevka Charon Mono", monospace;
+  border-color: #6b3f8c;
+  border-width: 2px;
+  border-radius: 5px;
+}
+
 
 /* ----------------- Employee Table ------------------- */
 
@@ -242,6 +271,15 @@ label{
     flex-direction: column;
     font-family: Verdana, sans-serif;
     gap: 10px
+  }
+
+  .search-employee-label{
+    margin: auto;
+    display: block;
+    width: 80%;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Verdana, sans-serif;
   }
 
   .search-employee-input{
@@ -500,6 +538,7 @@ label{
 .quick-stats-container{
   margin: 0px auto 40px auto; 
   padding-bottom: 40px;
+  padding-left: 40px;
   width: 80%;
   border-radius: 12px; /* Makes the corners round */
   background: rgb(246, 181, 106);
@@ -507,10 +546,9 @@ label{
   display: flex;
   flex-direction: column;
   font-family: Zain; /* Changes fonts */
+  font-weight: bold;
   gap: 15px;
 } 
-
-
 
 
 
