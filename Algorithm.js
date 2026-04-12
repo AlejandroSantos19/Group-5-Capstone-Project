@@ -11,6 +11,12 @@ async function handleAddEmployee(){
     const Email = document.getElementById("Email").value;
     const PhoneNumber = document.getElementById("PhoneNumber").value;
 
+    const ValidationError = validateEmployeeData(FirstName, LastName, HourlyWage, Email, PhoneNumber);
+    if(ValidationError){
+      alert(ValidationError);
+      return;
+    }
+
     const response = await fetch("http://localhost:3000/save", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
@@ -30,6 +36,45 @@ async function handleAddEmployee(){
 
     //Display all current employees in UI 
     displayEmployees();
+}
+
+//This function validates user input for adding an employee using regular expressions (Regex)
+//If there is an entry field that is not valid it returns an error string, otherwise it returns null value.
+function validateEmployeeData(FirstName, LastName, HourlyWage, Email, PhoneNumber){
+  //This validates that the first and last name is at least one character long and less than 40 characters long.
+  //It also checks that the first letter is capitilized.
+  const nameRegex = /^[A-Z][a-zA-z]{0,39}$/;
+  if(!nameRegex.test(FirstName)){
+    return "Invalid first name. Name must start with a captial letter and be less than 40 characters long";
+  }
+  else if(!nameRegex.test(LastName)){
+    return "Invalid last name. Name must start with a capital letter and be less than 40 characters long";
+  }
+
+  //This validates that the hourly wage input by the user has one or more digits before the decimal,
+  //a decimal point, and two digits after the decimal.
+  const wageRegex = /^\d+\.\d{2}$/;
+  if(!wageRegex.test(HourlyWage)){
+    return "Invalid hourly wage. Enter a valid hourly wage. One or more digits before the decimal, a decimal point, and two digits after the decimal.";
+  }
+
+  //This validates that the email input by the user is in the form: username@doman.extension 
+  // * Username: can have letters, numbers, and/or the characters ._%+-
+  // * Domain: can have letters, numbers, and/or the characters .-
+  // * Extension: must have at least two letters (eg. .com, .org, .edu)
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if(!emailRegex.test(Email)){
+    return "Invalid email address. Enter a valid email address."
+  }
+
+  //This checks that the phone number input by the user is in the form XXX-XXX-XXXX 
+  const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
+  if(!phoneRegex.test(PhoneNumber)){
+    return "Invalid phone number, it must have the format xxx-xxx-xxxx.";
+  }
+
+  //Everything was valid
+  return null; 
 }
 
 
@@ -75,9 +120,23 @@ async function displayEmployees() {
 
       //Removes all exisitng rows from the EmployeeTable
       table.innerHTML = "";
+
+      const NumberEmployeesDisplayed = document.getElementById("NumberEmployeesDisplayed").value;
+      console.log(NumberEmployeesDisplayed);
+
+      //This checks to see how many employees are needed to be displayed and stores the value in the limit variable 
+      let limit;
+      if(NumberEmployeesDisplayed === "all"){
+        //All employees are to be displayed on the table
+        limit = employees.length;
+      } else{
+        //This stores the drop down selector value into the limit variable as a number so only a set amount of employees can be displayed on the table
+        limit = Number(NumberEmployeesDisplayed);
+      }
   
-      //This loops through all of the employees and displays their information onto our html table
-      employees.forEach(employee => {
+      //This loops through the employees and displays them on the html table up to the limit provided by the drop down selector.
+      for(let i = 0; i < limit && i < employees.length; i++){
+        let employee = employees[i];
 
         console.log(employee);
 
@@ -101,7 +160,10 @@ async function displayEmployees() {
         
         //Adds the new row to the table
         table.appendChild(row);
-      });
+      };
+
+      //When the user changes the number of employees they want displayed, this updates and redisplays the employee table
+      document.getElementById("NumberEmployeesDisplayed").addEventListener("change", displayEmployees);
     } catch(error) {
       console.error("There was an error loading the employees table: ",  error);
     }
