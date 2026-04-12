@@ -630,6 +630,44 @@ select{
   gap: 15px;
 } 
 
+/*----------- adding shift calendar styling --------*/
+.modal-content {
+  background: white;
+  padding: 25px;
+  margin: 10% auto;
+  width: 320px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* even spacing */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-weight: 600;
+}
+
+.form-group input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  background-color: #4a2a6a;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 
 

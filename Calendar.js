@@ -10,6 +10,8 @@
 
 // Store the currently displayed date 
 let currentDate = new Date();
+let selectedDate = null;
+
 
 function renderCalendar() {
 // Get references to HTML elements used for display
@@ -43,7 +45,12 @@ function renderCalendar() {
 
   // Actual days
   for (let day = 1; day <= lastDate; day++) {
-    calendarDates.innerHTML += `<div class="date">${day}</div>`;
+    calendarDates.innerHTML += `
+  <div class="date" onclick="openModal(${day})">
+    ${day}
+  </div>
+`;
+
   }
 }
 // Moves the calendar to the previous month then re renders the display
@@ -59,3 +66,43 @@ function nextMonth() {
 
 // Run initial render when page first loads
 renderCalendar();
+
+//modal functions
+
+function openModal(day) {
+  selectedDate = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    day
+  );
+
+  document.getElementById("shiftModal").style.display = "block";
+  document.getElementById("selectedDateText").innerText =
+    "Selected Date: " + selectedDate.toDateString();
+}
+
+function closeModal() {
+  document.getElementById("shiftModal").style.display = "none";
+}
+
+function saveShift() {
+  const employee = document.getElementById("shiftEmployee").value;
+  const start = document.getElementById("shiftStart").value;
+  const end = document.getElementById("shiftEnd").value;
+
+  console.log("Shift Saved:", {
+    date: selectedDate,
+    employee,
+    start,
+    end
+  });
+
+  alert("Shift saved (UI only for now)");
+
+  closeModal();
+
+  // Clear inputs
+  document.getElementById("shiftEmployee").value = "";
+  document.getElementById("shiftStart").value = "";
+  document.getElementById("shiftEnd").value = "";
+}

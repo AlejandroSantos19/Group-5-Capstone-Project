@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calendar - Tasktopus</title>
+    <title>Business Management</title>
     <style></style>
 
     <!-- Test comment -->
@@ -62,5 +62,38 @@
     </main>
 
     <script src="Calendar.js"></script>
+
+
+    <!-- Shift Modal -->
+<div id="shiftModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Add Shift</h2>
+
+    <p id="selectedDateText"></p>
+
+    <div class="form-group">
+      <label>Employee Name</label>
+      <input id="shiftEmployee" placeholder="Enter name" />
+    </div>
+
+    <div class="form-group">
+      <label>Start Time</label>
+      <input id="shiftStart" type="time" />
+    </div>
+
+    <div class="form-group">
+      <label>End Time</label>
+      <input id="shiftEnd" type="time" />
+    </div>
+
+    <button onclick="saveShift()">Save Shift</button>
+  </div>
+</div>
+
+
+
   </body>
 </html>
+
+
