@@ -533,6 +533,86 @@ select{
   }
 }
 
+/*--------- Account Styling ---------*/
+.account-section {
+        margin: 0 auto 24px auto;
+        width: 80%;
+        border-radius: 12px;
+        background: rgb(189, 164, 197, 0.5);
+        padding: 24px 32px;
+        font-family: Verdana, sans-serif;
+      }
+
+      .account-section h3 {
+        font-family: "Iosevka Charon Mono", monospace;
+        font-size: 20px;
+        font-weight: bold;
+        color: #3a1a5a;
+        margin: 0 0 16px 0;
+        text-align: left;
+      }
+
+      .account-info-row {
+        font-size: 15px;
+        color: #2a1a3a;
+        margin-bottom: 6px;
+      }
+
+      .account-info-row span {
+        font-weight: bold;
+        color: #4a2a6a;
+      }
+
+      .account-input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 9px 12px;
+        border-radius: 8px;
+        border: none;
+        font-size: 15px;
+        font-family: Verdana, sans-serif;
+        margin-bottom: 12px;
+        background: #fff;
+      }
+
+      .account-input:focus {
+        outline: 3px solid #071d57;
+      }
+
+      .account-label {
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        color: #4a2a6a;
+        margin-bottom: 5px;
+        width: auto;
+        margin-left: 0;
+      }
+
+      .account-btn {
+        display: inline-flex !important;
+        width: auto !important;
+        padding: 9px 24px;
+        font-size: 15px;
+        justify-content: center;
+        margin-top: 4px;
+      }
+
+      .account-btn-danger {
+        background-color: #f54444 !important;
+      }
+
+      .account-status {
+        font-size: 13px;
+        font-family: Verdana, sans-serif;
+        margin-top: 10px;
+        min-height: 18px;
+        color: #da7b00;
+      }
+
+      .account-status.success { color: #1b5e20; }
+      .account-status.error   { color: #880e4f; }
+      
 /*--------- Visual Graphs Styling ---------*/
 
 .quick-stats-container{
