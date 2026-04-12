@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard - Tasktopus</title>
+    <title>Business Management</title>
 
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -47,27 +47,21 @@
 
         <!-- all inputs is required to be filled before adding employees-->
 
-        <label class="add-employee-label" for="FirstName"
-          >Enter First Name:</label
-        >
+        <label class="add-employee-label" for="FirstName">Enter First Name:</label>
         <input
           class="add-employee-input"
           id="FirstName"
           placeholder="First Name"
           required
         />
-        <label class="add-employee-label" for="LastName"
-          >Enter Last Name:</label
-        >
+        <label class="add-employee-label" for="LastName">Enter Last Name:</label>
         <input
           class="add-employee-input"
           id="LastName"
           placeholder="Last Name"
           required
         />
-        <label class="add-employee-label" for="DateOfBirth"
-          >Enter Date of Birth</label
-        >
+        <label class="add-employee-label" for="DateOfBirth">Enter Date of Birth</label>
         <input
           class="add-employee-input"
           id="DateOfBirth"
@@ -75,27 +69,21 @@
           placeholder="Date Of Birth"
           required
         />
-        <label class="add-employee-label" for="Position"
-          >Enter Employee Position</label
-        >
+        <label class="add-employee-label" for="Position">Enter Employee Position</label>
         <input
           class="add-employee-input"
           id="Position"
           placeholder="Position"
           required
         />
-        <label class="add-employee-label" for="HourlyWage"
-          >Enter Hourly Wage (e.g. 14.34)
-        </label>
+        <label class="add-employee-label" for="HourlyWage">Enter Hourly Wage (e.g. 14.34) </label>
         <input
           class="add-employee-input"
           id="HourlyWage"
           placeholder="Hourly Wage"
           required
         />
-        <label class="add-employee-label" for="Email"
-          >Enter Employee Email</label
-        >
+        <label class="add-employee-label" for="Email">Enter Employee Email</label>
         <input
           class="add-employee-input"
           id="Email"
@@ -116,19 +104,18 @@
         <button onclick="handleAddEmployee()">Add Employee</button>
       </div>
 
+
+    
+
       <div>
-        <div class="table-controls">
-          <label
-            class="number-employees-displayed-label"
-            for="NumberEmployeesDisplayed"
-            >Display # of employees:</label
-          >
+        <div class= "table-controls">
+          <label class="number-employees-displayed-label" for="NumberEmployeesDisplayed">Display # of employees:</label>
           <select id="NumberEmployeesDisplayed">
-            <option value="5">5</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-            <option value="all">All</option>
+            <option value ="5">5</option>
+            <option value ="25">25</option>
+            <option value ="50">50</option>
+            <option value ="100">100</option>
+            <option value ="all">All</option>
           </select>
         </div>
 
@@ -150,9 +137,7 @@
       <div class="search-employee-container">
         <h2>Search Employee</h2>
 
-        <label class="search-employee-label" for="FirstName"
-          >Enter First Name:</label
-        >
+        <label class="search-employee-label" for="FirstName">Enter First Name:</label>
         <input
           class="search-employee-input"
           id="SearchFirstName"
