@@ -8,7 +8,7 @@ const mysql = require("mysql2");
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "iusb2026!", //iusb2026!
+  password: "iusb2026", //iusb2026!
   database: "Test_db",
 });
 
@@ -226,8 +226,99 @@ const server = http.createServer((req, res) => {
       res.end(JSON.stringify(results));
     });
   }
+
+//Connor Prout 4/22/26 for
+// add-shift, GET-shift, remove-shift functions inside createServer block
+
+//--------------------ADD SHIFT--------------------------------------------
+if (req.method === "POST" && req.url === "/add-shift") {
+  let body = "";
+
+  req.on("data", chunk => {
+    body += chunk.toString();
+  });
+
+  req.on("end", () => {
+    const data = JSON.parse(body);
+
+    const sql = `
+      INSERT INTO shifts (employee_id, shift_date, start_time, end_time)
+      VALUES (?, ?, ?, ?)
+    `;
+
+    connection.query(
+      sql,
+      [data.employee_id, data.shift_date, data.start_time, data.end_time],
+      (err) => {
+        if (err) {
+          res.writeHead(500, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ message: "Error adding shift" }));
+          return;
+        }
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ message: "Shift added successfully" }));
+      }
+    );
+  });
+
+  return;
+}
+
+
+//-----------------GET SHIFTS------------------------------------
+if (req.method === "GET" && req.url === "/shifts") {
+  const sql = `
+    SELECT shifts.*, employees.first_name, employees.last_name
+    FROM shifts
+    JOIN employees ON shifts.employee_id = employees.id
+  `;
+
+  connection.query(sql, (err, results) => {
+    if (err) {
+      res.writeHead(500, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ message: "Error fetching shifts" }));
+      return;
+    }
+
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(results));
+  });
+
+  return;
+}
+
+//--------------------DELETE SHIFTS-------------------
+if (req.method === "DELETE" && req.url.startsWith("/shifts/")) {
+  const id = req.url.split("/")[2];
+
+  const sql = "DELETE FROM shifts WHERE id = ?";
+
+  connection.query(sql, [id], (err) => {
+    if (err) {
+      res.writeHead(500, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ message: "Error deleting shift" }));
+      return;
+    }
+
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ message: "Shift deleted" }));
+  });
+
+  return;
+}
+
+
+
+//-----------------------------------------end of addendum 4/22/26
+
+
 });
 
 server.listen(3000, () => {
   console.log("Server is running on http://localhost:3000");
 });
+
+
+
+
