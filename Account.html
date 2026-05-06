@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
     <title>Account - Tasktopus</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="app-topbar">
@@ -28,7 +28,7 @@
         <a href="dashboard.html">Dashboard</a>
         <a href="VisualGraphs.html">Visual Graphs</a>
         <a href="Calendar.html">Calendar</a>
-        <a href="Tasks.html">Tasks</a>
+        <a href="tasks.html">Tasks</a>
         <a href="Account.html">Account</a>
       </div>
     </nav>
@@ -36,51 +36,74 @@
     <main class="app-main">
       <h2>Account</h2>
 
-      <!-- Account Info -->
-      <div class="account-section">
-        <h3>Account Info</h3>
-        <p class="account-info-row">
-          Signed in as: <span id="displayEmail">Loading...</span>
-        </p>
-      </div>
+      <div class="account-page-wrap">
+        <!-- Top summary card -->
+        <section class="account-section account-summary-card">
+          <div class="account-summary-left">
+            <img
+              src="tasktopus_logo.png"
+              alt="Tasktopus logo"
+              class="brand-logo small-logo"
+            />
+            <div>
+              <h3>Account Info</h3>
+              <p class="account-subtext">
+                Manage your Tasktopus account settings.
+              </p>
+            </div>
+          </div>
 
-      <!-- Change Password -->
-      <div class="account-section">
-        <h3>Change Password</h3>
-        <label class="account-label" for="newPassword">New Password</label>
-        <input
-          class="account-input"
-          id="newPassword"
-          type="password"
-          placeholder="Enter new password (min 6 chars)"
-        />
-        <label class="account-label" for="confirmPassword"
-          >Confirm Password</label
-        >
-        <input
-          class="account-input"
-          id="confirmPassword"
-          type="password"
-          placeholder="Re-enter new password"
-        />
-        <button class="account-btn" onclick="handleChangePassword()">
-          Update Password
-        </button>
-        <p class="account-status" id="passwordStatus"></p>
-      </div>
+          <div class="account-summary-right">
+            <p class="account-info-row">
+              Signed in as: <span id="displayEmail">Loading...</span>
+            </p>
+          </div>
+        </section>
 
-      <!-- Sign Out -->
-      <div class="account-section">
-        <h3>Sign Out</h3>
-        <p class="account-info-row">
-          Sign out of your Tasktopus account on this device.
-        </p>
-        <button
-          class="account-btn account-btn-danger"
-          onclick="handleSignOut()"
-        >
-          Sign Out
-        </button>
+        <!-- Bottom two-card layout -->
+        <div class="account-grid">
+          <section class="account-section">
+            <h3>Change Password</h3>
+
+            <label class="account-label" for="newPassword">New Password</label>
+            <input
+              class="account-input"
+              id="newPassword"
+              type="password"
+              placeholder="Enter new password (min 6 chars)"
+            />
+
+            <label class="account-label" for="confirmPassword">
+              Confirm Password
+            </label>
+            <input
+              class="account-input"
+              id="confirmPassword"
+              type="password"
+              placeholder="Re-enter new password"
+            />
+
+            <button class="account-btn" onclick="handleChangePassword()">
+              Update Password
+            </button>
+
+            <p class="account-status" id="passwordStatus"></p>
+          </section>
+
+          <section class="account-section account-side-card">
+            <h3>Sign Out</h3>
+            <p class="account-subtext left-text">
+              Sign out of your Tasktopus account on this device.
+            </p>
+
+            <button
+              class="account-btn account-btn-danger"
+              onclick="handleSignOut()"
+            >
+              Sign Out
+            </button>
+          </section>
+        </div>
       </div>
     </main>
 
@@ -105,19 +128,18 @@
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
 
-      // Show signed-in email
       onAuthStateChanged(auth, (user) => {
         if (!user) {
           window.location.href = "index.html";
           return;
         }
+
         document.getElementById("displayEmail").textContent = user.email;
       });
 
-      // Change password
       window.handleChangePassword = async function () {
         const newPass = document.getElementById("newPassword").value;
-        const confirm = document.getElementById("confirmPassword").value;
+        const confirmPass = document.getElementById("confirmPassword").value;
         const status = document.getElementById("passwordStatus");
 
         if (newPass.length < 6) {
@@ -128,7 +150,8 @@
           );
           return;
         }
-        if (newPass !== confirm) {
+
+        if (newPass !== confirmPass) {
           showStatus(status, "Passwords do not match.", "error");
           return;
         }
@@ -143,9 +166,9 @@
         }
       };
 
-      // Sign out
       window.handleSignOut = async function () {
         if (!confirm("Are you sure you want to sign out?")) return;
+
         await signOut(auth);
         window.location.href = "index.html";
       };
@@ -153,6 +176,7 @@
       function showStatus(el, msg, type) {
         el.textContent = msg;
         el.className = `account-status ${type}`;
+
         setTimeout(() => {
           el.textContent = "";
           el.className = "account-status";

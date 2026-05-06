@@ -488,85 +488,164 @@ select{
 }
 
 /*--------- Account Styling ---------*/
+.account-page-wrap {
+  width: min(92%, 1050px);
+  margin: 0 auto 40px auto;
+}
+
+.account-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
 .account-section {
-        margin: 0 auto 24px auto;
-        width: 80%;
-        border-radius: 12px;
-        background: rgb(189, 164, 197, 0.5);
-        padding: 24px 32px;
-        font-family: Verdana, sans-serif;
-      }
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background: rgba(189, 164, 197, 0.5);
+  padding: 28px 30px;
+  font-family: Verdana, sans-serif;
+  box-shadow: 0 8px 20px rgba(60, 30, 90, 0.08);
+}
 
-      .account-section h3 {
-        font-family: "Iosevka Charon Mono", monospace;
-        font-size: 20px;
-        font-weight: bold;
-        color: #3a1a5a;
-        margin: 0 0 16px 0;
-        text-align: left;
-      }
+.account-section h3 {
+  font-family: "Iosevka Charon Mono", monospace;
+  font-size: 24px;
+  font-weight: bold;
+  color: #3a1a5a;
+  margin: 0 0 16px 0;
+  text-align: left;
+}
 
-      .account-info-row {
-        font-size: 15px;
-        color: #2a1a3a;
-        margin-bottom: 6px;
-      }
+.account-summary-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
 
-      .account-info-row span {
-        font-weight: bold;
-        color: #4a2a6a;
-      }
+.account-summary-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
 
-      .account-input {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 9px 12px;
-        border-radius: 8px;
-        border: none;
-        font-size: 15px;
-        font-family: Verdana, sans-serif;
-        margin-bottom: 12px;
-        background: #fff;
-      }
+.account-summary-right {
+  text-align: right;
+}
 
-      .account-input:focus {
-        outline: 3px solid #071d57;
-      }
+.account-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #6b3f8c;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-size: 28px;
+  font-weight: bold;
+}
 
-      .account-label {
-        display: block;
-        font-size: 14px;
-        font-weight: bold;
-        color: #4a2a6a;
-        margin-bottom: 5px;
-        width: auto;
-        margin-left: 0;
-      }
+.account-subtext {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  font-family: Verdana, sans-serif;
+  color: #4f4360;
+  text-align: left;
+}
 
-      .account-btn {
-        display: inline-flex !important;
-        width: auto !important;
-        padding: 9px 24px;
-        font-size: 15px;
-        justify-content: center;
-        margin-top: 4px;
-      }
+.left-text {
+  margin-bottom: 18px;
+}
 
-      .account-btn-danger {
-        background-color: #f54444 !important;
-      }
+.account-info-row {
+  font-size: 15px;
+  color: #2a1a3a;
+  margin-bottom: 0;
+  text-align: left;
+}
 
-      .account-status {
-        font-size: 13px;
-        font-family: Verdana, sans-serif;
-        margin-top: 10px;
-        min-height: 18px;
-        color: #da7b00;
-      }
+.account-info-row span {
+  font-weight: bold;
+  color: #4a2a6a;
+}
 
-      .account-status.success { color: #1b5e20; }
-      .account-status.error   { color: #880e4f; }
-      
+.account-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 15px;
+  font-family: Verdana, sans-serif;
+  margin-bottom: 12px;
+  background: #fff;
+}
+
+.account-input:focus {
+  outline: 3px solid #071d57;
+}
+
+.account-label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #4a2a6a;
+  margin-bottom: 5px;
+  width: auto;
+}
+
+.account-btn {
+  display: inline-flex !important;
+  width: auto !important;
+  padding: 10px 20px;
+  font-size: 15px;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.account-btn-danger {
+  background-color: #f54444 !important;
+}
+
+.account-side-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.account-status {
+  font-size: 13px;
+  font-family: Verdana, sans-serif;
+  margin-top: 10px;
+  min-height: 18px;
+  color: #da7b00;
+}
+
+.account-status.success { color: #1b5e20; }
+.account-status.error { color: #880e4f; }
+
+@media (max-width: 900px) {
+  .account-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .account-summary-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .account-summary-right {
+    text-align: left;
+  }
+}
 /*--------- Visual Graphs Styling ---------*/
 
 .quick-stats-container{
