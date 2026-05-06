@@ -25,6 +25,7 @@ loadEmployees();
 // -----------------------------
 // Save shift 
 // -----------------------------
+
 document.getElementById("saveShiftBtn")?.addEventListener("click", async () => {
 
   const employeeName = document.getElementById("employeeSelect")?.value;
@@ -69,6 +70,7 @@ document.getElementById("saveShiftBtn")?.addEventListener("click", async () => {
 
   alert("Shift added!");
 });
+
 
 
 // -----------------------------

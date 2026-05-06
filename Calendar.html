@@ -32,14 +32,16 @@
         <a href="dashboard.html">Dashboard</a>
         <a href="VisualGraphs.html">Visual Graphs</a>
         <a href="Calendar.html">Calendar</a>
-        <a href="Tasks.html">Tasks</a>
+        <a href="tasks.html">Tasks</a>
         <a href="Account.html">Account</a>
       </div>
     </nav>
 
     <main class="app-main">
+
       <!-- ================= NEW LAYOUT WRAPPER ================= -->
       <div class="calendar-layout">
+
         <!-- ================= LEFT: CALENDAR ================= -->
         <div class="calendar-container">
           <h1>Calendar</h1>
@@ -60,6 +62,7 @@
             <div>Sat</div>
           </div>
 
+          
           <div id="calendarDates" class="calendar-dates"></div>
         </div>
 
@@ -69,8 +72,10 @@
           <p id="selectedDayTitle">Select a day</p>
           <div id="shiftList"></div>
         </div>
+
       </div>
       <!-- ================= END NEW LAYOUT ================= -->
+
     </main>
 
     <!-- Shift Modal -->
@@ -83,11 +88,7 @@
 
         <div class="form-group">
           <label>Employee Name</label>
-          <input
-            id="shiftEmployee"
-            list="employeeList"
-            placeholder="Enter name"
-          />
+          <input id="shiftEmployee" list="employeeList" placeholder="Enter name" />
           <datalist id="employeeList"></datalist>
         </div>
 
@@ -101,11 +102,12 @@
           <input id="shiftEnd" type="time" />
         </div>
 
-        <button onclick="saveShift()">Save Shift</button>
+        <button class = "shift-button" onclick="saveShift()">Save Shift</button>
       </div>
     </div>
 
     <!-- ONLY ONE SCRIPT -->
     <script src="Calendar.js"></script>
+
   </body>
 </html>

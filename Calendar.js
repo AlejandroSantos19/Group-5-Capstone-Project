@@ -210,7 +210,7 @@ async function saveShift() {
   const result = await response.json();
   alert(result.message);
 
-  closeModal();
+  // closeModal();
 
   // ================= NEW: refresh panel =================
   allShifts = [];

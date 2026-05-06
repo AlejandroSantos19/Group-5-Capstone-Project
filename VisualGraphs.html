@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Business Management</title>
-    <style></style>
+    <title>Visual Graphs - Tasktopus</title>
+    <style></style> 
 
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <header class="app-topbar">
@@ -35,30 +36,41 @@
       </div>
     </nav>
 
-    <main class="app-main">
-      <div>
+    <main class="visual-graphs-stats-main">
         <h1>Visual Graphs and Stats Page</h1>
 
-        <div class="quick-stats-container">
+      <div class="quick-stats-container">
           <h2>Quick Stats</h2>
 
-          <label class=".quick-stats-label"
+          <label class="quick-stats-label"
             >Total Number of Employees: <span id="TotalNumberEmployees"></span>
           </label>
-          <label class=".quick-stats-label"
+          <label class="quick-stats-label"
             >Total Hourly Wage Paid: $<span id="TotalHourlyWage"></span
           ></label>
-          <label class=".quick-stats-label"
+          <label class="quick-stats-label"
             >Average Hourly Wage Paid: $<span id="AverageHourlyWage"></span
           ></label>
-          <label class=".quick-stats-label"
+          <label class="quick-stats-label"
             >Lowest Hourly Wage Paid: $<span id="LowestHourlyWage"></span
           ></label>
-          <label class=".quick-stats-label"
+          <label class="quick-stats-label"
             >Highest Hourly Wage Paid: $<span id="HighestHourlyWage"></span
           ></label>
         </div>
-      </div>
+
+        <div class="quick-stats-container">
+          <h2>Employees Above/Below Avg. Hourly Wage</h2>
+          <div class="chart-wrapper"> 
+          <canvas id="AverageHourlyWageChart"></canvas>
+          </div>
+        </div>
+
+        <div class="quick-stats-container">
+          <h2>Employee Position Count</h2>
+          <div class="chart-wrapper"> 
+          <canvas id="EmployeePositionsCount"></canvas>
+        </div>
     </main>
 
     <script src="Algorithm.js"></script>
