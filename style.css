@@ -302,54 +302,8 @@ select{
   .search-employee-button{
     background-color: rgb(241, 153, 51);
   }
-  /* ---------------- Calendar ---------------- */
+ 
 
-.calendar-container {
-  width: 80%;
-  margin: 40px auto;
-  text-align: center;
-  font-family: Verdana;
-}
-
-.calendar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.calendar-header button {
-  font-size: 20px;
-  padding: 6px 12px;
-  width: 10%;
-}
-
-.calendar-days,
-.calendar-dates {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
-}
-
-.calendar-days div {
-  font-weight: bold;
-  background: #796787;
-  color: white;
-  padding: 10px;
-  border-radius: 6px;
-}
-
-.calendar-dates div {
-  background: #B9A7C6;
-  padding: 15px;
-  border-radius: 6px;
-  min-height: 40px;
-}
-
-.calendar-dates div:hover {
-  background: #9d8ab0;
-  cursor: pointer;
-}
 
 /*--------- Login & Signup Page Styling ---------*/
 
@@ -630,18 +584,73 @@ select{
   gap: 15px;
 } 
 
+
+ /* ---------------- Calendar ---------------- */
+
+.calendar-container {
+  width: 80%;
+  margin: 40px auto;
+  text-align: center;
+  font-family: Verdana;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.calendar-header button {
+  font-size: 20px;
+  padding: 6px 12px;
+  width: 10%;
+}
+
+.calendar-days,
+.calendar-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-days div {
+  font-weight: bold;
+  background: #796787;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.calendar-dates div {
+  background: #B9A7C6;
+  padding: 15px;
+  border-radius: 6px;
+  min-height: 40px;
+}
+
+.calendar-dates div:hover {
+  background: #9d8ab0;
+  cursor: pointer;
+}
+
+
+
+
+
 /*----------- adding shift calendar styling --------*/
 .modal-content {
+  position: fixed;  
+  bottom: 20px;     
+  left: 5%;         
+
+
   background: white;
   padding: 25px;
-  margin: 10% auto;
   width: 320px;
   border-radius: 10px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* even spacing */
 }
+
 
 .form-group {
   display: flex;
@@ -667,6 +676,69 @@ button {
   color: white;
   border-radius: 5px;
   cursor: pointer;
+}
+/*styling for shift viewing on calendar */
+.calendar-dates div div {
+  font-size: 12px;
+  margin-top: 4px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 4px;
+  padding: 2px;
+}
+
+/* Layout split */
+.calendar-layout {
+  display: flex;
+  gap: 20px;
+  width: 90%;
+  margin: auto;
+}
+
+/* Making calendar smaller (left side) */
+.calendar-container {
+  width: 50%; /* CHANGED from 80% */
+}
+
+/* Right panel */
+.day-details-panel {
+  width: 50%;
+  background: rgba(189, 164, 197, 0.5);
+  border-radius: 12px;
+  padding: 20px;
+  font-family: Verdana;
+}
+
+.day-details-panel h2 {
+  margin-top: 0;
+}
+
+#shiftList div {
+  margin: 10px 0;
+  padding: 8px;
+  background: #fff;
+  border-radius: 6px;
+}
+
+/* shift item layout */
+.shift-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* delete button */
+.delete-shift-btn {
+  background: #f54444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-shift-btn:hover {
+  transform: scale(1.1);
 }
 
 /*------------- Tasks Page Styling ----------------*/

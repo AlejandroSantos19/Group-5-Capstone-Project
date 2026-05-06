@@ -38,62 +38,76 @@
     </nav>
 
     <main class="app-main">
-      <div class="calendar-container">
-        <h1>Calendar</h1>
 
-        <div class="calendar-header">
-          <button onclick="prevMonth()">❮</button>
-          <h3 id="monthYear"></h3>
-          <button onclick="nextMonth()">❯</button>
+      <!-- ================= NEW LAYOUT WRAPPER ================= -->
+      <div class="calendar-layout">
+
+        <!-- ================= LEFT: CALENDAR ================= -->
+        <div class="calendar-container">
+          <h1>Calendar</h1>
+
+          <div class="calendar-header">
+            <button onclick="prevMonth()">❮</button>
+            <h3 id="monthYear"></h3>
+            <button onclick="nextMonth()">❯</button>
+          </div>
+
+          <div class="calendar-days">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+          </div>
+
+          
+          <div id="calendarDates" class="calendar-dates"></div>
         </div>
 
-        <div class="calendar-days">
-          <div>Sun</div>
-          <div>Mon</div>
-          <div>Tue</div>
-          <div>Wed</div>
-          <div>Thu</div>
-          <div>Fri</div>
-          <div>Sat</div>
+        <!-- ================= RIGHT: SHIFT PANEL ================= -->
+        <div class="day-details-panel">
+          <h2>Shifts</h2>
+          <p id="selectedDayTitle">Select a day</p>
+          <div id="shiftList"></div>
         </div>
 
-        <div id="calendarDates" class="calendar-dates"></div>
       </div>
+      <!-- ================= END NEW LAYOUT ================= -->
+
     </main>
 
-    <script src="Calendar.js"></script>
-
-
     <!-- Shift Modal -->
-<div id="shiftModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2>Add Shift</h2>
+    <div id="shiftModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Add Shift</h2>
 
-    <p id="selectedDateText"></p>
+        <p id="selectedDateText"></p>
 
-    <div class="form-group">
-      <label>Employee Name</label>
-      <input id="shiftEmployee" placeholder="Enter name" />
+        <div class="form-group">
+          <label>Employee Name</label>
+          <input id="shiftEmployee" list="employeeList" placeholder="Enter name" />
+          <datalist id="employeeList"></datalist>
+        </div>
+
+        <div class="form-group">
+          <label>Start Time</label>
+          <input id="shiftStart" type="time" />
+        </div>
+
+        <div class="form-group">
+          <label>End Time</label>
+          <input id="shiftEnd" type="time" />
+        </div>
+
+        <button onclick="saveShift()">Save Shift</button>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label>Start Time</label>
-      <input id="shiftStart" type="time" />
-    </div>
-
-    <div class="form-group">
-      <label>End Time</label>
-      <input id="shiftEnd" type="time" />
-    </div>
-
-    <button onclick="saveShift()">Save Shift</button>
-  </div>
-</div>
-
-
+    <!-- ONLY ONE SCRIPT -->
+    <script src="Calendar.js"></script>
 
   </body>
 </html>
-
-
