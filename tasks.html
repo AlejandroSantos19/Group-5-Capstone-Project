@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasks - Tasktopus</title>
+    <style></style>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="app-topbar">
+      <div class="topbar-left">
+        <a href="dashboard.html" class="brand-wrap">
+          <img
+            src="tasktopus_logo.png"
+            alt="Tasktopus logo"
+            class="brand-logo small-logo"
+          />
+        </a>
+      </div>
+      <div class="topbar-center">
+        <h1 class="topbar-title">Tasktopus</h1>
+      </div>
+      <div class="topbar-right"></div>
+    </header>
+
+    <nav class="app-nav">
+      <div class="app-nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="VisualGraphs.html">Visual Graphs</a>
+        <a href="Calendar.html">Calendar</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="Account.html">Account</a>
+      </div>
+    </nav>
+
+    <main class="app-main">
+      <h1>Tasks</h1>
+
+      <div class="tasks-layout">
+        <!-- Add Task Form -->
+        <div class="task-form-container">
+          <h2>Add Task</h2>
+
+          <label class="task-label" for="taskName">Task Name</label>
+          <input
+            class="task-input"
+            id="taskName"
+            type="text"
+            placeholder="Task Name"
+          />
+
+          <label class="task-label" for="taskDesc"
+            >Description (optional)</label
+          >
+          <textarea
+            class="task-textarea"
+            id="taskDesc"
+            placeholder="Describe the task..."
+          ></textarea>
+
+          <label for="taskPriority" class="task-label">Priority Level</label>
+          <select id="taskPriority" class="task-select">
+            <option value="Low">Low</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="High">High</option>
+          </select>
+
+          <label class="task-label">Attach Image/File (optional)</label>
+          <label for="taskFile" class="file-upload-label">📎 Choose File</label>
+          <input
+            type="file"
+            id="taskFile"
+            accept="image/*,.pdf,.doc,.docx,.txt"
+          />
+          <span id="fileNameDisplay">No file chosen</span>
+          <img id="uploadPreviewImg" src="" alt="" style="display: none" />
+
+          <button onclick="addTask()">Add Task</button>
+        </div>
+
+        <!-- Task Display Table -->
+        <div class="task-table-wrap">
+          <table class="task-table">
+            <thead>
+              <tr>
+                <th>Task Name</th>
+                <th>Description</th>
+                <th>Priority</th>
+                <th>Attachment</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody id="taskTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <!-- Lightbox for Images-->
+    <div id="lightbox" onclick="closeLightbox()">
+      <span id="lightbox-close">×</span>
+      <img
+        id="lightboxImg"
+        src="file:///C:/Users/Kevin04/Downloads/Messages_5.html"
+        alt="Full size"
+      />
+    </div>
+
+    <script src="tasks.js"></script>
+  </body>
+</html>
