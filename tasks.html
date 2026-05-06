@@ -82,6 +82,13 @@
 
         <!-- Task Display Table -->
         <div class="task-table-wrap">
+          <div class="task-table-header">
+            <h2>Task List</h2>
+            <button type="button" onclick="sortTasksByPriority()">
+              Sort by Priority
+            </button>
+          </div>
+
           <table class="task-table">
             <thead>
               <tr>
@@ -101,11 +108,7 @@
     <!-- Lightbox for Images-->
     <div id="lightbox" onclick="closeLightbox()">
       <span id="lightbox-close">×</span>
-      <img
-        id="lightboxImg"
-        src="file:///C:/Users/Kevin04/Downloads/Messages_5.html"
-        alt="Full size"
-      />
+      <img id="lightboxImg" src="" alt="Full size" />
     </div>
 
     <script src="tasks.js"></script>
